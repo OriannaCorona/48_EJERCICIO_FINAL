@@ -4,6 +4,8 @@ $(document).ready( function(){
 	renderHighlightedRecipes(recipesArray);
 	//Para esconder el icono de la flecha en esta pagina
 	$('.icon-arrow-left-alt').hide();
+	//para ejecutar la función
+	printNews();
 
 });
 
@@ -43,5 +45,9 @@ function renderActivities(activitiesArray) {
 function renderActivity(recipe) {
 	
 }
-
+//Funcion para poner de un color determinado una noticia
+//y para agregarle un texto al div
+function printNews() {
+	$('#pNoticias').text('NUEVAS RECETAS');		
+}
 
