@@ -9,14 +9,33 @@ $(document).ready( function(){
 
 });
 
+//Funcion para poner de un color determinado una noticia
+//y para agregarle un texto al div
+function printNews() {
+	$('#pNoticias').text('NUEVAS RECETAS');		
+}
 
 /*
 * Función que se encarga de pintar TODAS las recetas que tengan 
 * marcado el atributo "highlighted" como TRUE
 */
 function renderHighlightedRecipes(recipesArray) {
-	console.log('Recipes: ', recipesArray);
-}
+	console.log('Recipes ', recipesArray);
+	for (i=0; i < recipesArray.lenght; i++ ) {
+		
+		if(recipesArray[i].highlighted == true){
+			alert('El objeto que sí tiene esta propiedad es: ' + i);
+			//renderRecipe(i);
+		}
+	}
+	/*$(this).each();	
+	var noTienen = {
+		hasOwnProperty: function() {
+        console.log ('false');
+    	}
+    }*/
+};
+
 
 /*
 * Función que se encarga de pintar UNA recetas que tenga 
@@ -45,9 +64,5 @@ function renderActivities(activitiesArray) {
 function renderActivity(recipe) {
 	
 }
-//Funcion para poner de un color determinado una noticia
-//y para agregarle un texto al div
-function printNews() {
-	$('#pNoticias').text('NUEVAS RECETAS');		
-}
+
 
