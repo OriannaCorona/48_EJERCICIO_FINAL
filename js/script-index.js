@@ -6,6 +6,7 @@ $(document).ready( function(){
 	$('.icon-arrow-left-alt').hide();
 	//para ejecutar la función
 	printNews();
+	renderActivities(activitiesArray);
 
 });
 
@@ -20,6 +21,7 @@ function printNews() {
 */
 function renderHighlightedRecipes(recipesArray) {
 	console.log('Recipes ', recipesArray);
+
 	for (i=0; i < recipesArray.length; i++ ) {
 		
 		if (recipesArray[i].highlighted == true) {
@@ -68,13 +70,19 @@ function renderRecipe(recipe) {
 	$('.list-recipes').append(aItem);
 }
 
-
-
 /*
 * Función que se encarga de pintar todas las actividades
 */
 function renderActivities(activitiesArray) {
 	console.log('Activities: ', activitiesArray);
+		
+		if (activitiesArray.length > 0) {
+			
+			$('.wrapper-message').hide();		
+		}
+	
+	
+
 }
 
 /*
