@@ -21,22 +21,15 @@ function printNews() {
 */
 function renderHighlightedRecipes(recipesArray) {
 	console.log('Recipes ', recipesArray);
-	for (i=0; i < recipesArray.lenght; i++ ) {
+	for (i=0; i < recipesArray.length; i++ ) {
 		
-		if(recipesArray[i].highlighted == true){
-			alert('El objeto que sí tiene esta propiedad es: ' + i);
-			//renderRecipe(i);
+		if (recipesArray[i].highlighted == true) {
+			//para corroborar si funciona
+			//alert('El objeto que sí tiene esta propiedad es: ' + i);
+			renderRecipe(i);
 		}
 	}
-	/*$(this).each();	
-	var noTienen = {
-		hasOwnProperty: function() {
-        console.log ('false');
-    	}
-    }*/
 };
-
-
 /*
 * Función que se encarga de pintar UNA recetas que tenga 
 * marcado el atributo "highlighted" como TRUE
