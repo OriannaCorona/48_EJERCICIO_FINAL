@@ -14,7 +14,6 @@ $(document).ready( function(){
 function printNews() {
 	$('#pNoticias').text('NUEVAS RECETAS');		
 }
-
 /*
 * Función que se encarga de pintar TODAS las recetas que tengan 
 * marcado el atributo "highlighted" como TRUE
@@ -26,7 +25,7 @@ function renderHighlightedRecipes(recipesArray) {
 		if (recipesArray[i].highlighted == true) {
 			//para corroborar si funciona
 			//alert('El objeto que sí tiene esta propiedad es: ' + i);
-			renderRecipe(i);
+			renderRecipe(recipesArray[i]);
 		}
 	}
 };
@@ -38,6 +37,35 @@ function renderHighlightedRecipes(recipesArray) {
 */
 function renderRecipe(recipe) {
 	console.log('Voy a pintar la receta: ', recipe);
+	
+	var aItem = $('<a class="item-recipe" href="#"></a>');
+
+	var spanAttribution = $('<span class="attribution"></span>');
+
+	var spanTitle = $('<span class="title-recipe"></span>');
+	spanTitle.text(recipe.title);
+	
+	var spanMetadata = $('<span class="metadata-recipe"></span>');
+
+	var spanAuthor = $('<span class="author-recipe"></span>');
+	spanAuthor.text(recipe.source.name);
+
+	var spanBook = $('<span class="bookmarks-recipe"></span>');
+
+	var spanIcon = $('<span class="icon-bookmark"></span>');
+
+	var img = $('<img>');
+	img.attr('src', "img/recipes/640x480/" + recipe.name + ".jpg");
+
+	aItem.append(spanAttribution);
+	spanAttribution.append(spanMetadata, spanTitle);
+	spanMetadata.append(spanAuthor, spanBook);
+	spanBook.append(spanIcon);
+	aItem.append(img);
+
+	console.log(aItem);
+
+	$('.list-recipes').append(aItem);
 }
 
 
