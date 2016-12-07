@@ -10,13 +10,17 @@ $(document).ready( function(){
 
 function quitarClaseMake() {
 	$('.js-show-recipe').on('click', function(){
-		$('.page, .recipe').removeClass('make');			
+		$('.page, .recipe').removeClass('make');
+		$('.js-show-recipe').addClass('active');
+		$('.js-show-make').removeClass('active');			
 	});	
 }
 
 function agregarClaseMake() {
 	$('.js-show-make').on('click', function(){
-		$('.page, .recipe').addClass('make');	
+		$('.page, .recipe').addClass('make');
+		$('.js-show-make').addClass('active');
+		$('.js-show-recipe').removeClass('active');	
 	});	
 }
 	
