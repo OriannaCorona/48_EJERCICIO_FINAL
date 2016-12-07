@@ -76,13 +76,15 @@ function renderRecipe(recipe) {
 function renderActivities(activitiesArray) {
 	console.log('Activities: ', activitiesArray);
 		
-		if (activitiesArray.length > 0) {
-			
-			$('.wrapper-message').hide();		
-		}
-	
-	
+	for (var i = 0; i < activitiesArray.length; i++) {
+			if (activitiesArray.length > 0) {
+		
+		$('.wrapper-message').hide();
+		renderActivity(activitiesArray[i]);		
+	}
+		}	
 
+	
 }
 
 /*
@@ -92,6 +94,30 @@ function renderActivities(activitiesArray) {
 */
 function renderActivity(recipe) {
 	
+	var template = 
+		'<a href="#" class="item-activity">' +
+			'<span class="attribution">' +
+				'<span class="avatar">' +
+					'<img src="<%=userAvatar%>" class="image-avatar">' +	
+				'</span>' +
+				'<span class="meta">' +
+					'<span class="author"><%=userName%></span>' +
+					'<span class="recipe"><%=recipeName%></span>: <%=text%>' +
+					'<span class="location"><%=place%></span>' +
+				'</span>' +
+			'</span>' +	
+			'<div class="bg-image" style="background-image: url(<%=image%>)"></div>' +
+		'</a>';
+	
+	console.log(template);
+	
+	var objeto = _.template(template);
+	var resultado = objeto(recipe);
+
+	var activo = $(resultado);
+
+	$('.list-activities').append(resultado);
+
 }
 
 
